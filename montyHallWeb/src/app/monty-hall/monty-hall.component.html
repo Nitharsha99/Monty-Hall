@@ -1,0 +1,65 @@
+<div class="container mt-3 shadow p-3 mb-5 rounded">
+    <div class="row">
+
+        <div class="col-8">
+            <div class="row">
+                <label for="numSimulations" class="col-sm-2 col-form-label">Count of Simulations :</label>
+                <div class="col-sm-8 mt-2">
+                  <input type="number" class="form-control" id="numSimulations" [(ngModel)]="numSimulations" placeholder="Enter the count of simulations">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="form-check mt-2">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Change Door
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="changeDoor" [(ngModel)]="changeDoor">
+            </div>
+        </div>
+
+    </div>
+
+    <div>
+        <diV class="col-md-12 text-center">
+            <button type="button" class="btn btn-primary" (click)="simulateGames()">Simulate</button>
+        </diV>
+    </div>
+
+    <div>
+        <div class="mt-4 text-center">
+            <div *ngIf="winCount !== null">
+                <h4>Win Count </h4> <h2>{{ winCount }}</h2>
+                <h4>Win Percentage </h4> <h2>{{ winPercentage }}%</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="shadow-sm p-3 mb-5 bg-body rounded">
+        <table  class="table table-striped">
+            <thead style="background-color: bisque;">
+                <tr>
+                  <th>Number of Simulations</th>
+                  <th>Is Door Change</th>
+                  <th>Win Count</th>
+                  <th>Win Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let result of simulations">
+                  <td>{{ result.numSimulation }}</td>
+                  <td>{{ result.changeDoor ? 'Yes' : 'No' }}</td>
+                  <td>{{ result.winCount }}</td>
+                  <td>{{ result.winPercentage }}%</td>
+                </tr>
+              </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+
+
+
